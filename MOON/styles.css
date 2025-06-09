@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Creepster&display=swap');
+
+:root {
+  --color-bg: #1a1a2e;
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #909090;
+  --color-accent: #8e44ad;
+  --color-accent-light: #4a195e;
+  --color-card-bg: #2a2a4a;
+  --color-border: #444466;
+  --color-vote-bar-bg: #3a3a5a;
+  --color-vote-bar-fill: #b356d0;
+  --color-error: #e74c3c;
+
+  --radius: 0.75rem;
+  --transition: 0.4s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 2rem 1rem 4rem;
+  background-image: radial-gradient(circle at center, #2e2e4a, #1a1a2e);
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-family: 'Creepster', cursive;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 1.1;
+  text-shadow: 0 0 10px var(--color-accent-light);
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-vote-bar-fill);
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+p {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-error {
+  color: var(--color-error);
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: var(--color-accent);
+  color: white;
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius);
+  font-size: 1.15rem;
+  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+button:hover, button:focus {
+  background-color: var(--color-vote-bar-fill);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+  outline: none;
+}
+button:disabled, button[disabled] {
+  background-color: #554160;
+  color: #a0a0a0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+input[type="text"], input[type="number"] {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 100%;
+  max-width: 320px;
+  color: var(--color-text-primary);
+  background-color: #333355;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+input[type="text"]:focus, input[type="number"]:focus {
+  border-color: var(--color-vote-bar-fill);
+  outline: none;
+  box-shadow: 0 0 10px var(--color-vote-bar-fill), inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: var(--color-text-primary);
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+}
+
+.card {
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.1);
+  padding: 2.5rem;
+  margin-bottom: 3.5rem;
+  border: 1px solid var(--color-border);
+}
+
+.center {
+  text-align: center;
+}
+
+.flex-row {
+  display: flex;
+  gap: 1.25rem;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  margin-bottom: 1.75rem;
+}
+
+.room-code {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 0.3em;
+  background: var(--color-accent-light);
+  color: var(--color-vote-bar-fill);
+  border-radius: var(--radius);
+  padding: 1rem 2rem;
+  user-select: all;
+  text-shadow: 0 0 8px var(--color-vote-bar-fill);
+  border: 1px dashed var(--color-vote-bar-fill);
+}
+
+.player-list {
+  margin-top: 1.5rem;
+  max-height: 380px;
+  overflow-y: auto;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  background: #333355;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.player-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px dashed var(--color-border);
+}
+.player-item:last-child {
+  border-bottom: none;
+}
+
+.player-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--color-text-primary);
+  text-shadow: 0 0 3px rgba(255,255,255,0.1);
+}
+
+.vote-input {
+  width: 4.5rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+  background-color: #444466;
+  color: var(--color-vote-bar-fill);
+}
+.vote-input:focus {
+  border-color: var(--color-vote-bar-fill);
+  outline: none;
+  box-shadow: 0 0 8px var(--color-vote-bar-fill);
+}
+
+.votes-remaining {
+  font-weight: 600;
+  color: var(--color-vote-bar-fill);
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+}
+.votes-used {
+  color: var(--color-error);
+  font-weight: 600;
+  margin-left: 0.35rem;
+}
+
+.results-list {
+  margin-top: 1.5rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  background: #333355;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+.results-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px dashed var(--color-border);
+  font-weight: 600;
+}
+.results-item:last-child {
+  border-bottom: none;
+}
+.score-tier {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-vote-bar-fill);
+  margin-left: 1.2rem;
+  font-family: 'Creepster', cursive;
+  min-width: 2rem;
+  text-align: center;
+  text-shadow: 0 0 5px var(--color-vote-bar-fill);
+}
+
+.vote-bar-container {
+  flex: 1;
+  margin-left: 1.2rem;
+  height: 16px;
+  border-radius: var(--radius);
+  background-color: var(--color-vote-bar-bg);
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+}
+.vote-bar-fill {
+  height: 100%;
+  background-color: var(--color-vote-bar-fill);
+  transition: width 0.4s ease;
+  border-radius: var(--radius) 0 0 var(--radius);
+  box-shadow: 0 0 10px var(--color-vote-bar-fill);
+}
+
+header, footer {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+}
+footer {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  text-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+.screen {
+  display: none;
+}
+.screen.active {
+  display: block;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1.5rem 0.5rem 3.5rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .card {
+    padding: 1.5rem;
+  }
+  .player-item, .results-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .vote-bar-container {
+    margin-left: 0;
+    width: 100%;
+    height: 12px;
+    margin-top: 6px;
+    border-radius: var(--radius);
+  }
+  .score-tier {
+    margin-left: 0;
+    width: 100%;
+    text-align: right;
+  }
+}
+
+#players-vote-list.loading {
+  color: var(--color-text-secondary);
+  font-style: italic;
+  text-align: center;
+  padding: 1.5rem;
+  user-select: none;
+}
